@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 public class SceneSwitch : MonoBehaviour
 {
     public string scene;
- 
+    GameObject gamemanager;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gamemanager = GameObject.FindWithTag("GameController");   
     }
 
     // Update is called once per frame
@@ -24,12 +24,8 @@ public class SceneSwitch : MonoBehaviour
     {
         if (col.tag == "Azure")
         {
-            gameObject.GetComponent<StartingPoint>().SavePoint(scene);
+            gamemanager.GetComponent<StartingPoint>().LoadPoint(scene);
             SceneManager.LoadScene(scene);
         }
-
-        gameObject.GetComponent<StartingPoint>().LoadPoint(scene);
-
-
     }
 }

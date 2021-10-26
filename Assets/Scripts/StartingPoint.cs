@@ -7,14 +7,15 @@ public class StartingPoint : MonoBehaviour
 {
     Scene activeScene;
     [SerializeField] Vector2 hometown;
-    [SerializeField] Vector2 flatlands;
-    Vector2 empty;
+    [SerializeField] Vector2 flatlandsHT;
     GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        activeScene = SceneManager.GetActiveScene();
+        hometown = new Vector2(0, -1.3f);
+        flatlandsHT = new Vector2(0, 0);
     }
 
     // Update is called once per frame
@@ -23,37 +24,17 @@ public class StartingPoint : MonoBehaviour
 
     }
 
-    public void SavePoint(string movingScene)
-    {
-        activeScene = SceneManager.GetActiveScene();
-        Debug.Log(activeScene.name);
-
-        if (activeScene.name == "Begining Town")
-        {
-            hometown = new Vector2(-10, 9);
-        }
-
-    }
-
     public void LoadPoint(string movingScene)
     {
         player = GameObject.FindWithTag("Azure");
 
-        if (movingScene == "Flatlands")
+        if (movingScene == "Flatlands" && activeScene.name == "Begining Town")
         {
-            if (flatlands == empty)
-            {
-
-            }
-
-            else
-            {
-
-            }
+            player.transform.position = flatlandsHT;
         }
         else if (movingScene == "Begining Town")
         {
-
+            player.transform.position = hometown;
         }
     }
 }

@@ -24,7 +24,8 @@ public class Conversation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (convobox == null)
+            GameObject.FindWithTag("TextBox");
     }
 
     public void Talk()

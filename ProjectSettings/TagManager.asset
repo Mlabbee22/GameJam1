@@ -9,6 +9,8 @@ TagManager:
   - Philip
   - Otto
   - TextBox
+  - Switcher
+  - Orc1
   layers:
   - Default
   - TransparentFX

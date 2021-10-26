@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyParty : MonoBehaviour
 {
@@ -14,5 +15,13 @@ public class EnemyParty : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.tag == "Azure")
+        {
+            SceneManager.LoadScene("Battle");
+        }
     }
 }
